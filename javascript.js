@@ -1,11 +1,12 @@
 //Variables
-const playerSelection = "Rock";
+//const playerSelection = "Rock";
+// const playerSelection = document.querySelector('.playerSubmit');
 
 //Computer randomises between rock, paper and scissors
 function getComputerChoice() {
     const computerChoices = ["Rock","Paper","Scissors"];
     const randomChoice = Math.floor(Math.random() * computerChoices.length);
-    return computerSelection = computerChoices[randomChoice];
+    return computerSelection = computerChoices[randomChoice].toUpperCase();
 };
 
 function playRound(playerSelection, computerSelection) {
@@ -19,8 +20,8 @@ function playRound(playerSelection, computerSelection) {
         return roundResult = 'Tie';
         //need to figure out how to repeat
     }
-    else if (playerSelection == "Rock") { //if human choice is rock
-        if (computerSelection == "Scissors") {
+    else if (playerSelection == "ROCK") { //if human choice is rock
+        if (computerSelection == "SCISSORS") {
             console.log("Congrats! You won!");
             return roundResult = 'Win';
         }
@@ -29,8 +30,8 @@ function playRound(playerSelection, computerSelection) {
             return roundResult = 'Lost';
         };
     }
-    else if (playerSelection == "Paper") { //if human choice is paper
-        if (computerSelection == "Rock") {
+    else if (playerSelection == "PAPER") { //if human choice is paper
+        if (computerSelection == "ROCK") {
             console.log("Congrats! You won!");
             return roundResult = 'Win';
         }
@@ -40,7 +41,7 @@ function playRound(playerSelection, computerSelection) {
         };
     }
     else { //if human choice is scissors
-        if (computerSelection == "Paper") {
+        if (computerSelection == "PAPER") {
             console.log("Congrats! You won!");
             return roundResult = 'Win';
         }
@@ -56,6 +57,7 @@ function game() {
     let totalRound = 1;
     //loop until max 5 wins or 5 losts
     for (let i = 1; i < 6; i++) {
+        let playerSelection = prompt("Rock, Paper or Scissors?").toUpperCase();
         playRound(playerSelection, getComputerChoice());
         console.log("Round:" + totalRound);
         console.log("Player: " + playerSelection);
@@ -72,4 +74,4 @@ function game() {
 
 };
 
-game();
+// game();
