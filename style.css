@@ -1,1 +1,31 @@
 /* TEST */
+
+body {
+    margin-left: 20%;
+    margin-right: 20%;
+    background-color: black;
+}
+
+h1, h2, h3 {
+    color: white;
+    text-align: center;
+    padding: 40px;
+}
+
+.button-containers {
+    display: flex;
+    justify-content: space-between;
+}
+
+.image-buttons {
+    width: 250px;
+    height: auto;
+}
+
+/* Hover state for buttons */
+
+.round-results {
+    text-align: center;
+    margin-top: 40px;
+    color: white;
+}

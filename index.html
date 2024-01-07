@@ -2,22 +2,34 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Hello, world!</title>
+  <title>Rock, Paper, Scissors</title>
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <meta name="description" content="" />
   <link rel="stylesheet" type="text/css" href="style.css" />
   <!-- <link rel="icon" href="favicon.png"> -->
-  <script src="javascript.js"></script>
+  <script src="javascript.js" defer></script>
 </head>
 <body>
   <h1>Welcome to Rock, Paper & Scissors Game!</h1>
-  <div class="buttons-container">
-        <button type="button" onclick="game()" class="">START GAME</button>
-        <!-- <button type="button" value = "Paper" class="playerSubmit">Paper</button> -->
-        <!-- <button type="button" value = "Scissors" class="playerSubmit">Scissors</button> -->
+  
+  <!-- Wire up the buttons to console for now -->
+  <div class="button-containers">
+    <a href="#"><img class="image-buttons" id="buttonRock" value="Rock" src="images/rock.jpg"></a>
+    <a href="#"><img class="image-buttons" id="buttonPaper" value="Paper" src="images/paper.jpg"></a>
+    <a href="#"><img class="image-buttons" id="buttonScissors" value="Scissors" src="images/scissors.jpg"></a>
   </div>
-  <div>
-    <p></p>
+  
+
+
+  <div class="round-results">
+    <p>Round 1 Result - player vs computer - win or loss</p>
+    <p>Round 2 Result - player vs computer - win or loss</p>
+    <p>Round 3 Result - player vs computer - win or loss</p>
+    <p>Round 4 Result - player vs computer - win or loss</p>
+    <p>Round 5 - select your move</p>
+    <p>game over - your or computer won</p>
   </div>
+
+
 </body>
 </html>
