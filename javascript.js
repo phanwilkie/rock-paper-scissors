@@ -11,20 +11,20 @@ function playRound(playerSelection, computerSelection) {
 
     //Evaluate Computer vs Human result
     if (playerSelection == computerSelection) {
-        console.log("It's a tie! - You: " + playerSelection + " vs Computer: " + computerSelection);
+        // console.log("It's a tie! - You: " + playerSelection + " vs Computer: " + computerSelection);
         let roundResult = 'Tie';
         let result = [playerSelection, computerSelection, roundResult];
         return result;
     }
     else if (playerSelection == "ROCK") { //if human choice is rock
         if (computerSelection == "SCISSORS") {
-            console.log("Congrats! You won! - You: " + playerSelection + " vs Computer: " + computerSelection);
+            // console.log("Congrats! You won! - You: " + playerSelection + " vs Computer: " + computerSelection);
             let roundResult = 'Win';
             let result = [playerSelection, computerSelection, roundResult];
             return result;
         }
         else {
-            console.log("Sorry! You've lost, better luck next time. - " + playerSelection + " vs You: " + computerSelection);
+            // console.log("Sorry! You've lost, better luck next time. - " + playerSelection + " vs You: " + computerSelection);
             let roundResult = 'Lost';
             let result = [playerSelection, computerSelection, roundResult];
             return result;
@@ -32,13 +32,13 @@ function playRound(playerSelection, computerSelection) {
     }
     else if (playerSelection == "PAPER") { //if human choice is paper
         if (computerSelection == "ROCK") {
-            console.log("Congrats! You won! - You: " + playerSelection + " vs Computer: " + computerSelection);
+            // console.log("Congrats! You won! - You: " + playerSelection + " vs Computer: " + computerSelection);
             let roundResult = 'Win';
             let result = [playerSelection, computerSelection, roundResult];
             return  result;
         }
         else {
-            console.log("Sorry! You've lost, better luck next time. - " + playerSelection + " vs You: " + computerSelection);
+            // console.log("Sorry! You've lost, better luck next time. - " + playerSelection + " vs You: " + computerSelection);
             let roundResult = 'Lost';
             let result = [playerSelection, computerSelection, roundResult];
             return result;
@@ -46,13 +46,13 @@ function playRound(playerSelection, computerSelection) {
     }
     else { //if human choice is scissors
         if (computerSelection == "PAPER") {
-            console.log("Congrats! You won! - You: " + playerSelection + " vs Computer: " + computerSelection);
+            // console.log("Congrats! You won! - You: " + playerSelection + " vs Computer: " + computerSelection);
             let roundResult = 'Win';
             let result = [playerSelection, computerSelection, roundResult];
             return result;
         }
         else {
-            console.log("Sorry! You've lost, better luck next time. - " + playerSelection + " vs You: " + computerSelection);
+            // console.log("Sorry! You've lost, better luck next time. - " + playerSelection + " vs You: " + computerSelection);
             let roundResult = 'Lost';
             let result = [playerSelection, computerSelection, roundResult];
             return result;
@@ -62,28 +62,58 @@ function playRound(playerSelection, computerSelection) {
 
 //keep tabs of round results
 let currentRound = 1;
-const totalRounds = 5;
+const totalRounds = 6;
 
 function game() {
 
     let buttonChoice = document.querySelectorAll('.image-buttons');
+
     buttonChoice.forEach(button => {
             button.addEventListener('click', () => {
             const buttonPlayerValue = button.getAttribute('value').toLocaleUpperCase();
-            if (currentRound <= totalRounds) {
+            if (currentRound < totalRounds) {
                 const result = playRound(buttonPlayerValue, getComputerChoice());
-                // console.log('Round ' + currentRound+ " - " + result[0] + " " + result[1] +" "+ result[2]);
-                // console.log('Computer Selection ' + computerSelection)
-                currentRound++;
-                if (currentRound > totalRounds) {
-                    console.log('Game Over!')
+                console.log('Round ' + currentRound+ " - " + result[0] + " " + result[1] +" "+ result[2]);
+                
+                //output each round's result to HTML
+                const roundDiv = document.querySelector('.round-results');
+                const roundPara = document.createElement('p');
+                roundPara.textContent = 'Round ' + currentRound+ " - " + result[0] + " " + result[1] +" "+ result[2];
+                roundDiv.appendChild(roundPara);
+
+                
+                if (result[2] == 'Tie') {
+                    currentRound;
                 }
-            }            
-            });        
+                else {
+                    currentRound++;
+                };
+
+                //output to HTML
+                if (currentRound === totalRounds) {
+                    
+                    const gameDiv = document.querySelector('.game-result');
+                    const gamePara = document.createElement('h1');
+                    const resetButton = document.createElement('button');
+
+                    gamePara.textContent = 'GAME OVER';
+
+                    resetButton.textContent = 'Restart the game';
+                    resetButton.setAttribute('onClick',"window.location.reload();");
+
+                    gameDiv.appendChild(gamePara);
+                    gameDiv.appendChild(resetButton);
+                    document.querySelector('.intro-text').remove();    
+                };
+
+                };
+                        
+            });      
     });
 };
             
-
 window.onload = game;
 
+//to do ->
+//output results to DOM
 //on game over a button will appear and user can click on the button to reset the game

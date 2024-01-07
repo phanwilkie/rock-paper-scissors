@@ -1,4 +1,5 @@
-/* TEST */
+/* TO DO */
+/* Hover state for button */
 
 body {
     margin-left: 20%;
@@ -6,10 +7,14 @@ body {
     background-color: black;
 }
 
-h1, h2, h3 {
+h1, h2, h3, .intro-text {
     color: white;
     text-align: center;
     padding: 40px;
+}
+
+.game-result, .round-results {
+    text-align: center;
 }
 
 .button-containers {
