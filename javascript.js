@@ -89,7 +89,7 @@ function game() {
 
                 roundTitleNumber.textContent = "Round " + currentRound;
                 
-                if (result[2] == 'Tie') {
+                if (result[2] == 'Tied') {
                     currentRound;
                 }
                 else {
