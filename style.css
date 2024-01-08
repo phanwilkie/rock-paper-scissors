@@ -13,7 +13,7 @@ h1, h2, h3, .intro-text {
     padding: 40px;
 }
 
-.game-result, .round-results {
+.game-result, .round-results, .round-number {
     text-align: center;
 }
 
@@ -29,8 +29,7 @@ h1, h2, h3, .intro-text {
 
 /* Hover state for buttons */
 
-.round-results {
+.round-results, .round-number {
     text-align: center;
-    margin-top: 40px;
     color: white;
 }

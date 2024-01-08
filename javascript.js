@@ -68,6 +68,12 @@ function game() {
 
     let buttonChoice = document.querySelectorAll('.image-buttons');
 
+    const roundTitle = document.querySelector('.round-number');
+    const roundTitleNumber = document.createElement('h2');
+
+    roundTitleNumber.textContent = "Round " + currentRound;
+    roundTitle.appendChild(roundTitleNumber);
+
     buttonChoice.forEach(button => {
             button.addEventListener('click', () => {
             const buttonPlayerValue = button.getAttribute('value').toLocaleUpperCase();
@@ -81,6 +87,7 @@ function game() {
                 roundPara.textContent = 'Round ' + currentRound+ " - " + result[0] + " " + result[1] +" "+ result[2];
                 roundDiv.appendChild(roundPara);
 
+                roundTitleNumber.textContent = "Round " + currentRound;
                 
                 if (result[2] == 'Tie') {
                     currentRound;
@@ -103,7 +110,8 @@ function game() {
 
                     gameDiv.appendChild(gamePara);
                     gameDiv.appendChild(resetButton);
-                    document.querySelector('.intro-text').remove();    
+                    document.querySelector('.intro-text').textContent = 'Game over - click the restart button to play again.';
+
                 };
 
                 };
