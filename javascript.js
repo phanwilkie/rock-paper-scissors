@@ -12,7 +12,7 @@ function playRound(playerSelection, computerSelection) {
     //Evaluate Computer vs Human result
     if (playerSelection == computerSelection) {
         // console.log("It's a tie! - You: " + playerSelection + " vs Computer: " + computerSelection);
-        let roundResult = 'Tie';
+        let roundResult = 'Tied';
         let result = [playerSelection, computerSelection, roundResult];
         return result;
     }
@@ -33,7 +33,7 @@ function playRound(playerSelection, computerSelection) {
     else if (playerSelection == "PAPER") { //if human choice is paper
         if (computerSelection == "ROCK") {
             // console.log("Congrats! You won! - You: " + playerSelection + " vs Computer: " + computerSelection);
-            let roundResult = 'Win';
+            let roundResult = 'Won';
             let result = [playerSelection, computerSelection, roundResult];
             return  result;
         }
@@ -84,7 +84,7 @@ function game() {
                 //output each round's result to HTML
                 const roundDiv = document.querySelector('.round-results');
                 const roundPara = document.createElement('p');
-                roundPara.textContent = 'Round ' + currentRound+ " - " + result[0] + " " + result[1] +" "+ result[2];
+                roundPara.textContent = 'Round ' + currentRound+ " - " + result[0] + " vs " + result[1] +". You've "+ result[2] + "!";
                 roundDiv.appendChild(roundPara);
 
                 roundTitleNumber.textContent = "Round " + currentRound;
